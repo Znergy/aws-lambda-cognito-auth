@@ -58,7 +58,7 @@ exports.handler = function(event, context, callback) {
 Inside the terminal, in your project directory (aws-cognito-auth)
 * Inside your project directory, type..
 ```
-'zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules'
+zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules
 ```
 Go to AWS Lambda Console, where you made your AWS Lambda function. Instead, of your current runtime language, select 'upload with zip'.
   * Click 'upload' and choose your 'function.zip' file
