@@ -1,17 +1,18 @@
-# Cognito Authentication with Lambda
+# AWS Cognito Authentication with AWS Lambda
 
 #### By: Ryan Jones
 #### Version: 07/17/2017
 #### LinkedIn: https://www.linkedin.com/in/ryanjonesirl/
 
-#### This is a brief overview, with missing pieces, feel free to reach out if you get stuck and I will help you troubleshoot! I plan on writing a linkedIn article covering the entire process with images, code samples, and the final product in the coming weeks.
+## Quick Note
+This is a brief overview, with undoubtedly some missing pieces, feel free to reach out if you get stuck and I will help you troubleshoot! I plan on writing a linkedIn article covering the entire process with images, code samples, and the final product in the coming weeks. You can contact me via LinkedIn or directly using my email below. Thank you.
 
 ## What is this repo and why does it matter?
-This repository holds code that uses AWS Lambda, NodeJS, and Cognito to authenticate users for your app. What you can do with this code, is create your own AWS Lambda function which will authenticate users using your own Cognito User Pool. This is really powerful since you can pass data from your application through an API url using API Gateway. The hardest part of this process is the fact that AWS only supports client-side Cognito (Android, IOS, and Javascript) so server-side is a bit harder (ex, Java or NodeJS). Thus, this code should jumpstart a new developer to AWS Cognito faster than other resources I had to comb through to get to this point.
+This repository holds code that uses AWS Lambda, NodeJS, and AWS Cognito to authenticate users for your app. What you can do with this code, is create your own AWS Lambda function which will authenticate users using your own AWS Cognito User Pool. This is really powerful since you can pass data from your application through an API url using API Gateway. The hardest part of this process is the fact that AWS only supports client-side AWS Cognito (Android, IOS, and Javascript) so server-side is a bit harder (ex, Java or NodeJS). Thus, this code should jumpstart a new developer to AWS Cognito faster than other resources I had to comb through to get to this point.
 
 
 ## How it works.
-When you create an AWS Lambda function with the proper permissions to execute Lambda, API Gateway, and Cognito you will be able to pull data from a form on your app, pass it through an API Gateway URL, and run the lambda code in this repo to authenticate users with your app. To be safe and at least for testing purposes I use an IAM 'master_role' (name is irrelevant, just lots of permission access), which allows me to not worry about running into permission blocks so I can focus on working on the actual code.
+When you create an AWS Lambda function with the proper permissions to execute AWS Lambda, API Gateway, and AWS Cognito you will be able to pull data from a form on your app, pass it through an API Gateway URL, and run the AWS Lambda code in this repo to authenticate users with your app. To be safe and at least for testing purposes I use an IAM 'master_role' (name is irrelevant, just lots of permission access), which allows me to not worry about running into permission blocks so I can focus on working on the actual code.
 
 ## Uploading to AWS Lambda
 To upload the code you need a couple of things..
@@ -30,9 +31,10 @@ npm init
 
 3. Write some code
   * This code is a quick check to make sure that your dependencies are setup correctly
-  * You need to create a Cognito User Pool and an application inside that Cognito User Pool
+  * You need to create an AWS Cognito User Pool and an application inside that AWS Cognito User Pool
+    * Googling AWS Cognito setup, will help you create both the User Pool and the User Pool application
     * These values will be passed in to the code below
-    * Make sure to select given_name, email, and username in the attributes section of Cognito User Pool as required attributes
+    * Make sure to select given_name, email, and username in the attributes section of AWS Cognito User Pool as required attributes
 
 ```
 var AWS = require('aws-sdk');
@@ -62,7 +64,7 @@ exports.handler = function(event, context, callback) {
   * Once you've confirmed everything is working, you can then come back to the 'index.js' file in this repo and copy the rest of the code into the AWS Lambda console or into your local 'index.js' file, then rezip using 'zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules', and finally deploy to AWS Lambda
 
 ## Further exploration
-Once you know how the pieces work together, you can now explore using API Gateway to pass in user form information via API Gateway URL or expand the functionality of Cognito to not only handle registration, but all Coginto has to offer.
+Once you know how the pieces work together, you can now explore using API Gateway to pass in user form information via an API Gateway URL or expand the functionality of AWS Cognito to not only handle registration, but all AWS Cognito has to offer.
 Example of API Gateway..
 ```
 https://.../register-user?givenName=Ryan&username=ryan&password=Password_12345&email=ryan@example.com
