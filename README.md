@@ -76,10 +76,12 @@ Then go back to the AWS Lambda console, navigate to your function, and upload us
 
 ## Further exploration
 Once you know how the pieces work together, you can now explore using API Gateway to pass in user form information via an API Gateway URL or expand the functionality of AWS Cognito to not only handle registration, but all AWS Cognito has to offer.
+
 Example of API Gateway..
 ```
 https://.../register-user?givenName=Ryan&username=ryan&password=Password_12345&email=ryan@example.com
 ```
+
 Example of API Gateway request body..
 ```
 {
@@ -89,6 +91,7 @@ Example of API Gateway request body..
   "email": "$input.params('email')"
 }
 ```
+
 Example of pulling URL params out in Lambda..
 ```
 var given_name = event.givenName; // Ryan
@@ -96,12 +99,15 @@ var username = event.username; // ryan
 var password = event.password; // Password_12345
 var email = event.email; // ryan@example.com
 ```
+
 You can then swap out the static fields for these dynamic variables and make 'real' authentication calls to AWS Cognito
 
 ## Important Notes
 This is not the most secure way of handling a users password and there are plenty of ways to increase the security/handling of the users password. For this scenario, I'm keeping the code relatively simple and avoiding convoluting the core reason for this repository.
 
 ## Contact
-* Name: Ryan Jones
-* Email: ryanjonesirl@gmail.com
-* Please feel free to reach out with any questions, concerns, or bugs. Thank you!
+Ryan Jones
+
+ryanjonesirl@gmail.com
+
+Please feel free to reach out with any questions, concerns, or bugs. Thank you!
