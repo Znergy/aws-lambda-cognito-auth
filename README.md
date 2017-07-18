@@ -12,7 +12,7 @@ This repository holds code that uses AWS Lambda, NodeJS, and AWS Cognito to auth
 
 
 ## How it works.
-When you create an AWS Lambda function with the proper permissions to execute AWS Lambda, API Gateway, and AWS Cognito you will be able to pull data from a form on your app, pass it through an API Gateway URL, and run the AWS Lambda code in this repo to authenticate users with your app. To be safe and at least for testing purposes I use an IAM 'master_role' (name is irrelevant, just lots of permission access), which allows me to not worry about running into permission blocks so I can focus on working on the actual code.
+When you create an AWS Lambda function with the proper permissions to execute AWS Lambda, API Gateway, and AWS Cognito you will be able to pull data from a form on your app, pass it through an API Gateway URL, and run the AWS Lambda code in this repo to authenticate users with your app. To make testing easier, I use an IAM 'master_role' (name is irrelevant, just lots of permission access), which allows me to not worry about running into permission blocks so I can focus on working on the actual code. To get the workflow described above, it will take some work on your end learning how these services operate on a deeper level, luckily there are a lot of great resources and I would be happy to answer any questions!
 
 ## Uploading to AWS Lambda
 To upload the code you need a couple of things..
