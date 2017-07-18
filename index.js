@@ -11,12 +11,6 @@ exports.handler = function(event, context, callback) {
 
     var attributeList = [];
 
-    // var email = event.email;
-    // var username = event.username;
-    // var password = event.password;
-    // var name = event.name;
-    // var phoneNumber = event.phoneNumber;
-
     var dataEmail = {
         Name : 'email',
         Value : 'example@gmail.com'
