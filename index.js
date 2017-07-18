@@ -1,14 +1,6 @@
 var AWS = require('aws-sdk');
 var AWSCognito = require('./amazon-cognito-identity.min.js');
 
-/**
- * This function is used with API Gateway to pass email, username, name, phoneNumber,
- * and password through the URL..
- * URL Example: https://.../register-user?email=example@gmail.com&username=example&name=John+Doe&phoneNumber=5037615053&password=Password_12345
- * The password must be 8 chars long, contain a number, uppercase letter, and special character
- * The phone number must be formatted as '+1_number' this is done once the phoneNumber is passed into the function below
-*/
-
 exports.handler = function(event, context, callback) {
     var poolData = {
         UserPoolId : 'your_user_pool_Id', // Your user pool id here
@@ -19,25 +11,25 @@ exports.handler = function(event, context, callback) {
 
     var attributeList = [];
 
-    var email = event.email;
-    var username = event.username;
-    var password = event.password;
-    var name = event.name;
-    var phoneNumber = event.phoneNumber;
+    // var email = event.email;
+    // var username = event.username;
+    // var password = event.password;
+    // var name = event.name;
+    // var phoneNumber = event.phoneNumber;
 
     var dataEmail = {
         Name : 'email',
-        Value : email
+        Value : 'example@gmail.com'
     };
 
     var dataPhoneNumber = {
         Name : 'phone_number',
-        Value : '+1' + phoneNumber
+        Value : '+15035554444'
     };
 
     var dataGivenName = {
         Name: 'given_name',
-        Value: name
+        Value: 'John Doe'
     };
 
     var attributeEmail = new AWSCognito.CognitoUserAttribute(dataEmail);
