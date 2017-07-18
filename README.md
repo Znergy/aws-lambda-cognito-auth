@@ -17,6 +17,14 @@ When you create an AWS Lambda function with the proper permissions to execute AW
 ## Uploading to AWS Lambda
 To upload the code you need a couple of things..
 
+### Three core files for an AWS Lambda upload
+1. function code (index.js, register-user-function.js, etc)
+2. package.json
+3. amazon-cognito-identity.min.js
+
+### Important, before uploading
+Change 'register-user-function.js' or whatever the function file name is to 'index.js', prior to uploading to AWS Lambda. On AWS Lambda, the normal naming convention for your function is 'index.js'. If you upload the function file with the name 'register-user-function.js' and don't change the handler on AWS Lambda to 'register-user-function.handler' this will cause issues (the handler has to match the function file name). To be safe, change the name of the file to 'index.js' prior to uploading and confirm the handler is 'index.handler' in the AWS Lambda console.
+
 ### 1) Project setup
 ```
 mkdir aws-cognito-auth
