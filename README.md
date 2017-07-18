@@ -98,7 +98,7 @@ doRegister() {
 }
 ```
 
-Example of API Gateway..
+Example of API Gateway URL..
 ```
 https://.../register-user?givenName=Ryan&username=ryan&password=Password_12345&email=ryan@example.com
 ```
