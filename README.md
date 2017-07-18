@@ -60,9 +60,8 @@ Inside the terminal, in your project directory (aws-cognito-auth)
 ```
 zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules
 ```
-Go to AWS Lambda Console, where you made your AWS Lambda function. Instead, of your current runtime language, select 'upload with zip'.
+Navigate to the AWS Lambda Console and create a function called, userAuth. You want this function to have access to execute AWS Lambda and AWS Cognito permissions. Choose NodeJS as your runtime environment and create your function. Once created, open the function and instead of your current runtime language (which should be NodeJS), select 'upload with zip' from the drop down menu.
   * Click 'upload' and choose your 'function.zip' file
-Assuming you have a user pool already created, you need to swap out 'your_user_pool_Id' and 'your_client_Id' for the correct values from the AWS Cognito console
 
 ### 5) Test and continue
 Click 'save and test', this will run your function and if you scroll down you should see a log. The log will say 'Working' if everything went okay, as well as a whole slew of information about your 'userPool'
