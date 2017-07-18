@@ -2,6 +2,9 @@
 
 #### By: Ryan Jones
 #### Version: 07/17/2017
+#### LinkedIn: https://www.linkedin.com/in/ryanjonesirl/
+
+#### This is a brief overview, with missing pieces, feel free to reach out if you get stuck and I will help you troubleshoot! I plan on writing a linkedIn article covering the entire process with images, code samples, and the final product in the coming weeks.
 
 ## What is this repo and why does it matter?
 This repository holds code that uses AWS Lambda, NodeJS, and Cognito to authenticate users for your app. What you can do with this code, is create your own AWS Lambda function which will authenticate users using your own Cognito User Pool. This is really powerful since you can pass data from your application through an API url using API Gateway. The hardest part of this process is the fact that AWS only supports client-side Cognito (Android, IOS, and Javascript) so server-side is a bit harder (ex, Java or NodeJS). Thus, this code should jumpstart a new developer to AWS Cognito faster than other resources I had to comb through to get to this point.
