@@ -83,10 +83,10 @@ Example of API Gateway request body..
 ```
 Example of pulling URL params out in Lambda..
 ```
-var given_name = event.givenName;
-var username = event.username;
-var password = event.password;
-var email = ryan@example.com
+var given_name = event.givenName; // Ryan
+var username = event.username; // ryan
+var password = event.password; // Password_12345
+var email = event.email; // ryan@example.com
 ```
 You can then swap out the static fields for these dynamic variables and make 'real' authentication calls to AWS Cognito
 
