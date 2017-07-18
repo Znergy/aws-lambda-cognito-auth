@@ -15,12 +15,13 @@ This repository holds code that uses AWS Lambda, NodeJS, and AWS Cognito to auth
 When you create an AWS Lambda function with the proper permissions to execute AWS Lambda, API Gateway, and AWS Cognito you will be able to pull data from a form on your app, pass it through an API Gateway URL, and run the AWS Lambda code in this repo to authenticate users with your app. To make testing easier, I use an IAM 'master_role' (name is irrelevant, just lots of permission access), which allows me to not worry about running into permission blocks so I can focus on working on the actual code. To get the workflow described above, it will take some work on your end learning how these services operate on a deeper level, luckily there are a lot of great resources and I would be happy to answer any questions!
 
 ## Uploading to AWS Lambda
-To upload the code you need a couple of things..
+To upload the code you need a couple of things. Also, it would make this process much smoother if you made your own project and added the files one by one into your own project as you follow along.
 
-### Three core files for an AWS Lambda upload
+### Four core files for this AWS Lambda upload
 1. function code (index.js, register-user-function.js, etc)
 2. package.json
 3. amazon-cognito-identity.min.js
+4. node_modules
 
 ### Important, before uploading
 Change 'register-user-function.js' or whatever the function file name is to 'index.js', prior to uploading to AWS Lambda. On AWS Lambda, the normal naming convention for your function is 'index.js'. If you upload the function file with the name 'register-user-function.js' and don't change the handler on AWS Lambda to 'register-user-function.handler' this will cause issues (the handler has to match the function file name). To be safe, change the name of the file to 'index.js' prior to uploading and confirm the handler is 'index.handler' in the AWS Lambda console.
@@ -65,7 +66,7 @@ exports.handler = function(event, context, callback) {
 ### 4) Zip your project and upload to AWS Lambda
 Inside the terminal, in your project directory (aws-cognito-auth)
 
-Type..
+If you created your own project and the same naming convention as below, you should be able to type..
 ```
 zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules
 ```
