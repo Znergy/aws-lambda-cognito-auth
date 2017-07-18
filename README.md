@@ -17,26 +17,26 @@ When you create an AWS Lambda function with the proper permissions to execute AW
 ## Uploading to AWS Lambda
 To upload the code you need a couple of things..
 
-1. Project setup
+### 1) Project setup
 ```
 mkdir aws-cognito-auth
 cd aws-cognito-auth
 npm init
 ```
 
-2. Dependencies
+### 2) Dependencies
   * 'aws-sdk', 'jsbn', 'sjcl' (can all be installed with npm)
 ```
 npm install aws-sdk jsbn sjcl --save
 ```
   * Copy 'amazon-cognito-identity.min.js' into your project (this will allow you to use 'AWSCognito' in your code)
 
-3. Write some code
-  * This code is a quick check to make sure that your dependencies are setup correctly
-  * You need to create an AWS Cognito User Pool and an application inside that AWS Cognito User Pool
+### 3) Write some code
+  * The code below is a quick check to make sure that your dependencies are setup correctly
+  * You need to create an AWS Cognito User Pool and a User Pool application in AWS Cognito
     * Googling AWS Cognito setup, will help you create both the User Pool and the User Pool application
-    * These values will be passed in to the code below
-    * Make sure to select given_name, email, and username in the attributes section of AWS Cognito User Pool as required attributes
+    * The User Pool ID and the Application ID (client ID) will be passed into the code below
+    * Make sure to select given_name, email, and username in the attributes section of AWS Cognito User Pool as required attributes. This will allow you to not have to change any of the code in 'index.js' and immediately get to testing.
 
 ```
 var AWS = require('aws-sdk');
@@ -54,16 +54,17 @@ exports.handler = function(event, context, callback) {
 }
 ```
 
-4. Zip your project up and upload to AWS Lambda
-  * Inside the terminal, in your project directory (aws-cognito-auth)
-    * type 'zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules'
-  * Go to AWS Lambda Console, where you made your AWS Lambda function. Instead, of your current runtime language, select 'upload with zip'.
-    * Click 'upload' and choose your 'function.zip' file
-  * Assuming you have a user pool already created, you need to swap out 'your_user_pool_Id' and 'your_client_Id' for the correct values from the AWS Cognito console
+### 4) Zip your project and upload to AWS Lambda
+Inside the terminal, in your project directory (aws-cognito-auth)
+  * type 'zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules'
+Go to AWS Lambda Console, where you made your AWS Lambda function. Instead, of your current runtime language, select 'upload with zip'.
+  * Click 'upload' and choose your 'function.zip' file
+Assuming you have a user pool already created, you need to swap out 'your_user_pool_Id' and 'your_client_Id' for the correct values from the AWS Cognito console
 
-5. Test and continue
-  * Click 'save and test', this will run your function and if you scroll down you should see a log. The log will say 'Working' if everything went okay, as well as a whole slew of information about your 'userPool'
-  * Once you've confirmed everything is working, you can then come back to the 'index.js' file in this repo and copy the rest of the code into the AWS Lambda console or into your local 'index.js' file, then rezip using 'zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules', and finally deploy to AWS Lambda
+### 5) Test and continue
+Click 'save and test', this will run your function and if you scroll down you should see a log. The log will say 'Working' if everything went okay, as well as a whole slew of information about your 'userPool'
+
+Once you've confirmed everything is working, you can then come back to the 'index.js' file in this repo and copy the rest of the code into the AWS Lambda console or into your local 'index.js' file, then rezip using 'zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules', and finally deploy to AWS Lambda
 
 ## Further exploration
 Once you know how the pieces work together, you can now explore using API Gateway to pass in user form information via an API Gateway URL or expand the functionality of AWS Cognito to not only handle registration, but all AWS Cognito has to offer.
