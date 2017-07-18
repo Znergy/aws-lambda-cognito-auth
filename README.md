@@ -88,4 +88,4 @@ This is not the most secure way of handling a users password and there are plent
 ## Contact
 * Name: Ryan Jones
 * Email: ryanjonesirl@gmail.com
-Please feel free to reach out with any questions, concerns, or bugs. Thank you!
+* Please feel free to reach out with any questions, concerns, or bugs. Thank you!
