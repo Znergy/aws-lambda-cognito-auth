@@ -86,6 +86,6 @@ You can then swap out the static fields for these dynamic variables and make 're
 This is not the most secure way of handling a users password and there are plenty of ways to increase the security/handling of the users password. For this scenario, I'm keeping the code relatively simple and avoiding convoluting the core reason for this repository.
 
 ## Contact
-Ryan Jones\n
-ryanjonesirl@gmail.com\n
+* Name: Ryan Jones
+* Email: ryanjonesirl@gmail.com
 Please feel free to reach out with any questions, concerns, or bugs. Thank you!
