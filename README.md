@@ -26,8 +26,10 @@ npm init
 
 2. Dependencies
   * 'aws-sdk', 'jsbn', 'sjcl' (can all be installed with npm)
-  * npm install aws-sdk jsbn sjcl --save
-  * 'amazon-cognito-identity.min.js' (this will allow you to use 'AWSCognito' in your code)
+```
+npm install aws-sdk jsbn sjcl --save
+```
+  * Copy 'amazon-cognito-identity.min.js' into your project (this will allow you to use 'AWSCognito' in your code)
 
 3. Write some code
   * This code is a quick check to make sure that your dependencies are setup correctly
