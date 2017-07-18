@@ -56,6 +56,7 @@ exports.handler = function(event, context, callback) {
 
 ### 4) Zip your project and upload to AWS Lambda
 Inside the terminal, in your project directory (aws-cognito-auth)
+
 Type..
 ```
 zip function.zip index.js package.json amazon-cognito-identity.min.js node_modules
